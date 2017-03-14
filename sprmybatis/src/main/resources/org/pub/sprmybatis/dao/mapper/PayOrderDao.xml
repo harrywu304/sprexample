@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.pub.sprmybatis.dao.PayOrderDao">
+  <insert id="insertPayOrder" >
+  	insert into pay_order (pay_order_id, app_id,order_id,amount,order_name,order_content,order_create_time,order_submit_time,return_url,user_id,mer_code,attach) 
+  	values (#{payOrderId},#{appId},#{orderId},#{amount},#{orderName},#{orderContent},#{orderCreateTime},#{orderSubmitTime},#{returnUrl},#{userId},#{merCode},#{attach})
+  </insert>
+  <select id="selectPayOrderByOrderId" resultType="PayOrder">
+    select * from pay_order where app_id = #{appId} and order_id = #{orderId}
+  </select>
+  <select id="selectPayOrderById" resultType="PayOrder">
+    select * from pay_order where pay_order_id = #{payOrderId}
+  </select>  
+  <select id="selectPayOrderByPayOrderIdAndPayStatus" resultType="PayOrder">
+    select * from pay_order where pay_order_id = #{payOrderId} and pay_status = #{payStatus}
+  </select>    
+   <update id="updatePayOrderSubmitTimeAndReturnUrl">
+    update pay_order set order_submit_time = #{orderSubmitTime}, return_url = #{returnUrl} where pay_order_id = #{payOrderId}
+  </update>
+  <update id="updatePayOrderResult" >
+    update pay_order set pay_suc_count = pay_suc_count+1
+    <if test="payStatus == 0">
+    ,pay_status=1,first_suc_trx_id=#{firstSucTrxId}, first_suc_channel_id=#{firstSucChannelId},first_suc_notify_time=#{firstSucNotifyTime} 
+    </if>
+    where pay_order_id = #{payOrderId}
+  </update> 
+  <update id="updateAppNotifyStatus">
+    update pay_order set app_notify_status = 1, app_notify_time=#{appNotifyTime} where pay_order_id = #{payOrderId}
+  </update>
+</mapper>

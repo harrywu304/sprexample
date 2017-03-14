@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+  PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="org.pub.sprmybatis.dao.NotifyReplayDao">
+  <insert id="insertNotifyReplay" >
+    insert into notify_replay (pay_order_id,app_id,notify_count,last_try_time,full_notify_url)
+    values (#{payOrderId},#{appId},#{notifyCount},#{lastTryTime},#{fullNotifyUrl})
+  </insert>
+  <!-- 
+  <select id="selectNotifyReplayByNotifyCount" resultType="NotifyReplay">
+    select * from notify_replay where notify_count in 
+	 <foreach item="item" index="index" collection="array" open="(" separator="," close=")">  
+	  #{item}  
+	 </foreach>     
+  </select> 
+   -->
+   <select id="selectMinuteLevelNotifyReplay" resultType="NotifyReplay">
+		select pay_order_id,app_id,full_notify_url from notify_replay 
+		where notify_count = 2 and (unix_timestamp()- unix_timestamp(create_time)) > 4*60
+		union 
+		select pay_order_id,app_id,full_notify_url from notify_replay 
+		where notify_count = 3 and (unix_timestamp()- unix_timestamp(create_time)) > 10*60     
+   </select> 
+    <select id="selectHourLevelNotifyReplay" resultType="NotifyReplay">
+		select pay_order_id,app_id,full_notify_url from notify_replay 
+		where notify_count = 4 and (unix_timestamp()- unix_timestamp(create_time)) > 60*60
+		union 
+		select pay_order_id,app_id,full_notify_url from notify_replay 
+		where notify_count = 5 and (unix_timestamp()- unix_timestamp(create_time)) > 4*60*60   
+		union 
+		select pay_order_id,app_id,full_notify_url from notify_replay 
+		where notify_count = 6 and (unix_timestamp()- unix_timestamp(create_time)) > 10*60*60  
+		union 
+		select pay_order_id,app_id,full_notify_url from notify_replay 
+		where notify_count = 7 and (unix_timestamp()- unix_timestamp(create_time)) > 24*60*60  		  
+   </select> 
+	<update id="updateReplayInfo">
+	    update notify_replay set notify_count = notify_count + 1, last_try_time = #{lastTryTime} where pay_order_id = #{payOrderId}
+	</update>     
+	<delete id="deleteNotifyReplay">
+	    delete from notify_replay where pay_order_id = #{payOrderId}
+	</delete>   
+</mapper>

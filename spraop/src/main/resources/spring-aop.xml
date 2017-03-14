@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:c="http://www.springframework.org/schema/c"
+       xmlns:util="http://www.springframework.org/schema/util"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns="http://www.springframework.org/schema/beans"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+        http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+        http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+        http://www.springframework.org/schema/util http://www.springframework.org/schema/util/spring-util.xsd
+        http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+        
+        <!-- 
+        <aop:config>
+            <aop:aspect id="time" ref="timeHandler">
+                <aop:pointcut id="addAllMethod" expression="execution(* org.pub.spraop.service.HelloWorld.*(..))" />
+                <aop:before method="printTime" pointcut-ref="addAllMethod" />
+                <aop:after method="printTime" pointcut-ref="addAllMethod" />
+            </aop:aspect>
+        </aop:config>
+         -->
+        
+        <!-- 
+        <aop:config>
+	        <aop:pointcut id="addAllMethod" expression="execution(* org.pub.spraop.service.HelloWorld.*(..))" />
+	        <aop:advisor advice-ref="serviceBeforeAdvice" pointcut-ref="addAllMethod"/>
+	        <aop:advisor advice-ref="serviceReturnAdvice" pointcut-ref="addAllMethod"/>
+	        <aop:advisor advice-ref="serviceThrowAdvice" pointcut-ref="addAllMethod"/>
+        </aop:config>
+         -->
+        
+		<aop:aspectj-autoproxy/>
+</beans>

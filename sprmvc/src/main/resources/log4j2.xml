@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!-- Specify the refresh internal in seconds. -->
+<Configuration monitorInterval="60">
+	<Properties>
+		<Property name="LOGHOME">/data/applog/sprmvc</Property>
+	</Properties>
+	<Appenders>
+		<Console name="console" target="SYSTEM_OUT">
+			<PatternLayout pattern="%d %p [%c] - &lt;%m&gt;%n" />
+		</Console>
+		<RollingFile name="file" fileName="${LOGHOME}/sprmvc.log"
+			append="true" filePattern="${LOGHOME}/sprmvc-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout pattern="%d (%F:%L) %-5p - %m%n" />
+			<Policies>
+				<OnStartupTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+				<TimeBasedTriggeringPolicy />
+			</Policies>
+		</RollingFile>
+		<RollingFile name="notify" fileName="${LOGHOME}/notify.log"
+			append="true" filePattern="${LOGHOME}/alipayNotify-%d{yyyy-MM-dd}-%i.log">
+			<PatternLayout pattern="%d %m%n" />
+			<Policies>
+				<OnStartupTriggeringPolicy />
+				<SizeBasedTriggeringPolicy size="100 MB" />
+				<TimeBasedTriggeringPolicy interval="1"
+					modulate="true" />
+			</Policies>
+		</RollingFile>
+	</Appenders>
+	<Loggers>
+		<Logger name="notifyLogger" level="info" additivity="false"
+			includeLocation="true">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="notify" />
+		</Logger>
+		<Logger name="org.pub" level="debug" additivity="false"
+			includeLocation="true">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="file" />
+		</Logger>
+		<Root level="debug">
+			<AppenderRef ref="console" />
+			<AppenderRef ref="file" />
+		</Root>
+	</Loggers>
+</Configuration>
