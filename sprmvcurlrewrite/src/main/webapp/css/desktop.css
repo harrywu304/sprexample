@@ -1,0 +1,457 @@
+﻿/*样式清零 开始*/
+body, dl, dd, ul, ol, h1, h2, h3, h4, h5, h6, p, form, span {
+	margin: 0;
+	padding: 0;
+}
+body, button, input, select, textarea {
+	font-size: 14px;
+	font-family: '\5FAE\8F6F\96C5\9ED1';
+	font-family: "微软雅黑";
+}
+h1, h2, h3, h4, h5, h6 {
+	font-size: 100%;
+}
+em, b {
+	font-style: normal;
+}
+a {
+	text-decoration: none;
+}
+a:hover {
+	text-decoration: none;
+}
+li {
+	list-style: none;
+}
+img {
+	border: 0;
+}
+button, input, select, textarea {
+	font-size: 100%;
+	outline: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+td, th, ul, ol {
+	padding: 0;
+}
+form {
+	display: inline;
+}
+
+
+.clearfix:after {
+	display: block;
+	clear: both;
+	content: "";
+	visibility: hidden;
+	height: 0;
+}
+.clearfix {
+	zoom: 1;
+}
+/*样式清零 结束*/
+
+select, textarea {
+	border: 1px solid #ccc;
+}
+input[type=text] {
+	border: 1px solid #ccc;
+}
+input[type=password] {
+	border: 1px solid #ccc;
+}
+html, body {
+	min-width: 1000px;
+}
+body {
+	color: #333;
+	background: #f2f2f2;
+}
+.fl {
+	float: left !important;
+}
+.fr {
+	float: right !important;
+}
+.tc {
+	text-align: center;
+}
+.liner {
+	border-right: 1px solid #ddd;
+}
+.p_header {
+	display: none;
+}
+/* warp */
+
+.pc_header {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: 61px;
+	background: #fff;
+	border-bottom: 1px solid #ddd;
+}
+.pc_header .headCon {
+	margin: 0 auto;
+	width: 1000px;
+	height: 60px;
+	line-height: 60px;
+}
+.p_con {
+	margin: 0;
+	padding: 0;
+	width: 100%;
+	height: auto;
+}
+.p_con .p_pro {
+	margin: 20px auto;
+	padding: 20px;
+	width: 958px;
+	height: auto;
+	background: #fff;
+	border: 1px solid #ddd;
+}
+.p_con .p_pro .p_proInfo {
+	margin: 10px;
+}
+.p_con .p_pro .p_proInfo h2 {
+	margin-bottom: 10px;
+	font-size: 18px;
+}
+.p_con .p_pro .p_proInfo p {
+	line-height: 24px;
+	font-size: 14px;
+	color: #666;
+}
+.p_con .p_pro .p_order {
+	padding: 20px 40px;
+	height: 120px;
+	font-size: 14px;
+	background: url(../images/orderBg.png) no-repeat center top;
+}
+.p_con .p_pro .p_order h3 {
+	margin-top: 10px;
+	line-height: 30px;
+	font-size: 18px;
+}
+.p_con .p_pro .p_order .orderSum {
+	margin-top: 20px;
+	padding-bottom: 20px;
+	font-size: 16px;
+}
+.p_con .p_pro .p_order .orderSum span {
+	display: inline-block;
+}
+.p_con .p_pro .p_order .orderSum .orderSum_time {
+	padding-top: 5px;
+	font-size: 14px;
+}
+.p_con .p_order .orderSum b {
+	margin-right: 5px;
+	color: #fb4c23;
+	font-size: 24px;
+}
+.p_con .p_order .orderSum i {
+	color: #fe294c;
+	font-style: normal;
+}
+.p_con .p_title {
+	margin: 20px auto;
+	padding: 0 30px;
+	width: 940px;
+	font-size: 16px;
+	text-align: left;
+}
+.p_con .p_payment {
+	margin: 0 auto;
+	padding: 20px;
+	width: 958px;
+	height: auto;
+	background: #fff;
+	border-top: 3px solid #67b0f1;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+}
+.p_con .p_payment .payBox {
+	float: left;
+	margin: 20px 50px 20px 20px;
+}
+.p_con .p_payment .payBox .payInfo {
+	float: right;
+	margin-left: 10px;
+	padding: 10px 20px;
+	width: 220px;
+	border: 1px solid #ddd;
+}
+.p_con .p_payment .payBox .payInfo img {
+	float: left;
+	width: 48px;
+	height: 48px;
+	margin-right: 10px;
+}
+.p_con .p_payment .payBox .payInfo p {
+	line-height: 24px;
+}
+.p_con .p_payment .payBox .payInfo p.p_paytips {
+	font-size: 12px;
+	color: #999;
+}
+.p_con .p_payment .radioBox {
+	float: left;
+}
+.p_con .p_btn {
+	margin: 0 auto;
+	padding: 20px 20px 40px 20px;
+	width: 958px;
+	height: auto;
+	text-align: center;
+	background: #fff;
+	border: 1px solid #ddd;
+	border-top: none;
+}
+.p_con .p_btn a.abtn {
+	display: inline-block;
+	width: 200px;
+	border-radius: 8px;
+	height: 48px;
+	line-height: 48px;
+	text-align: center;
+	color: #fff;
+	background: #67b0f1;
+	font-size: 16px;
+}
+.p_con .p_btn a.abtn:link {
+	color: #fff;
+}
+.p_con .p_btn a.abtn:visited {
+	color: #fff;
+}
+.p_con .p_btn a.abtn:hover {
+	color: #fff;
+	background: #45a2f5;
+}
+.p_con .p_btn a.abtn:active {
+	color: #fff;
+}
+.p_con .pc_payment {
+	margin: 0 auto;
+	padding: 20px;
+	width: 958px;
+	height: auto;
+	background: #fff;
+	border-top: 3px solid #67b0f1;
+	border-left: 1px solid #ddd;
+	border-right: 1px solid #ddd;
+	border-bottom: 1px solid #ddd;
+}
+.pc_footer {
+	margin-top: 40px;
+	padding: 0;
+	width: 100%;
+	border-top: 1px solid #ddd;
+}
+.pc_footer p {
+	margin: 0 auto;
+	width: 1000px;
+	height: 50px;
+	line-height: 50px;
+	text-align: center;
+	font-size: 12px;
+	color: #666;
+}
+/*radio*/
+.pay_list_c1 {
+	margin-top: 25px;
+	width: 24px;
+	height: 18px;
+	float: left;
+	padding-top: 3px;
+	cursor: pointer;
+	text-align: center;
+	background-image: url(../images/inputradio.png);
+	background-repeat: no-repeat;
+	background-position: -24px 0;
+}
+.radioclass {
+	opacity: 0;
+	cursor: pointer;
+	-ms-filter: "progid:DXImageTransform.Microsoft.Alpha(Opacity=0)";
+	filter: alpha(opacity=0);
+}
+.on {
+	background-position: 0 0;
+}
+/*微信支付弹框*/
+.pc_dialogWC {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left: -430px;
+	margin-top: -300px;
+	width: 860px;
+
+	background-color: #fff;
+	border: 1px solid #ddd;
+	-webkit-box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+	box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+	border-radius: 3px;
+}
+.pc_dialogWC .d_title {
+	padding: 0 20px;
+	height: 50px;
+	border-bottom: 1px solid #ddd;
+}
+.pc_dialogWC .d_title .t_txt {
+	float: left;
+	height: 50px;
+	line-height: 50px;
+}
+.pc_dialogWC .d_title .t_close {
+	float: right;
+	margin-top: 10px;
+}
+.pc_dialogWC .d_title .t_close a {
+	font-size: 24px;
+	color: #ddd;
+}
+.pc_dialogWC .d_title .t_close a:hover {
+	color: #67b0f1
+}
+
+
+
+
+
+.pc_dialogWC .d_main .wcpayBox {
+	margin: 30px;
+	padding: 10px;
+
+
+}
+.pc_dialogWC .d_main .wcpayBox .webChart {
+	margin: 20px;
+	width: 340px;
+	text-align: center;
+	
+}
+.pc_dialogWC .d_main .wcpayBox .webChart p {
+	margin-bottom: 20px;
+}
+/*支付宝支付弹框*/
+.pc_dialogAL {
+	position: fixed;
+	left: 50%;
+	top: 50%;
+	margin-left: -300px;
+	margin-top: -150px;
+	width: 600px;
+
+	background-color: #fff;
+	border: 1px solid #ddd;
+	-webkit-box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+	-moz-box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+	box-shadow: 0px 2px 4px rgba(0,0,0,0.1);
+	border-radius: 3px;
+}
+.pc_dialogAL .d_title {
+	padding: 0 20px;
+	height: 50px;
+	border-bottom: 1px solid #ddd;
+}
+.pc_dialogAL .d_title .t_txt {
+	float: left;
+	height: 50px;
+	line-height: 50px;
+}
+.pc_dialogAL .d_title .t_close {
+	float: right;
+	margin-top: 10px;
+}
+.pc_dialogAL .d_title .t_close a {
+	font-size: 24px;
+	color: #ddd;
+}
+.pc_dialogAL .d_title .t_close a:hover {
+	color: #67b0f1
+}
+
+.pc_dialogAL .d_main .alpayBox {
+	margin: 40px 20px;
+	text-align:center;
+
+
+}
+.pc_dialogAL .d_main .alpayBox p{ margin-bottom:10px; font-size:16px; }
+.pc_dialogAL .d_main .alpayBox .pc_btnGroup {
+	margin-top: 10px;
+	text-align: center;
+}
+.pc_btnGroup{ margin-bottom:40px; text-align:center;}
+.pc_btnGroup a.abtnB {
+	display: inline-block;
+	 margin-right:20px;
+	border-radius: 4px;
+	 padding:0 20px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	color: #fff;
+	background: #67b0f1;
+	font-size: 14px;
+}
+
+.pc_btnGroup a.abtnB:link {
+	color: #fff;
+}
+.pc_btnGroup a.abtnB:visited {
+	color: #fff;
+}
+.pc_btnGroup a.abtnB:hover {
+	color: #fff;
+	background: #45a2f5;
+}
+.pc_btnGroup a.abtnB:active {
+	color: #fff;
+}
+
+.pc_btnGroup a.abtnG {
+	display: inline-block;
+	border-radius: 4px;
+	margin-left:20px;
+	 padding:0 20px;
+	height: 36px;
+	line-height: 36px;
+	text-align: center;
+	color: #fff;
+	background: #999;
+	font-size: 14px;
+}
+
+.pc_btnGroup a.abtnG:link {
+	color: #fff;
+}
+.pc_btnGroup a.abtnG:visited {
+	color: #fff;
+}
+.pc_btnGroup a.abtnG:hover {
+	color: #fff;
+	background: #666;
+}
+.pc_btnGroup a.abtnG:active {
+	color: #fff;
+}
+
+/*帮助页面 开始*/
+.p_help{ margin:20px 0;  border-top:1px solid #ddd;}
+.p_help li{ margin:20px 0;  font-weight:bold; }
+.p_help li h3{ padding:6px 10px; height:auto; line-height:24px; font-size:14px;  background:#f9f9f9;}
+.p_help li p{ margin:5px 0; padding:0 10px; line-height:24px; font-size:14px; color:#333; font-weight:normal;}
+
+/*支付成功 开始*/
+.p_succeed{ padding:60px; text-align:center; vertical-align:middle; line-height:60px; font-size:18px;}
+.p_succeed img{ margin-right:20px; width:48px; height:48px; line-height:60px;vertical-align:middle;}
