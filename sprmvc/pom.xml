@@ -11,12 +11,6 @@
   	<spring.version>4.3.4.RELEASE</spring.version>
   </properties>
   <dependencies>
-  		<!-- url rewrite -->
-		<dependency>
-		    <groupId>org.tuckey</groupId>
-		    <artifactId>urlrewritefilter</artifactId>
-		    <version>4.0.3</version>
-		</dependency>  
   		<!-- 返回对象自动转json 渲染使用 -->
   		<dependency>
 			<groupId>com.fasterxml.jackson.core</groupId>

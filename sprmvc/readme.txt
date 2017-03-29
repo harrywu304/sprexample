@@ -5,7 +5,6 @@
 4、spring unit test；
 5、spring interceptor+threadlocal做latency检测;
 6、UserAgentUtil；
-7、tuckey Url rewrite；
 
 
 静态资源的配置有两种方式：
