@@ -21,8 +21,15 @@
 			expression="org.springframework.stereotype.Controller" />
 	</context:component-scan>
 
+	<!-- 避免使用@ResponseBody直接返回String对象时中文乱码的问题 -->
+	<mvc:annotation-driven conversion-service="conversionService">  
+	    <mvc:message-converters register-defaults="true">  
+	        <bean class="org.springframework.http.converter.StringHttpMessageConverter">  
+	            <property name="supportedMediaTypes" value = "text/html;charset=UTF-8" />  
+	        </bean>  
+	    </mvc:message-converters>  
+	</mvc:annotation-driven>  
 	<!-- auto convert request timestamp string to timestamp object -->
-	<mvc:annotation-driven conversion-service="conversionService" />
 	<bean id="conversionService"
 		class="org.springframework.context.support.ConversionServiceFactoryBean">
 		<property name="converters">
@@ -40,6 +47,32 @@
 		<property name="prefix" value="/WEB-INF/view/" />
 		<property name="suffix" value=".jsp" />
 	</bean>
+	
+	<!-- 配置多种返回数据类型 begin -->
+    <bean id="contentNegotiationManager" class="org.springframework.web.accept.ContentNegotiationManagerFactoryBean">
+        <property name="mediaTypes">
+            <map>
+                <entry key="shtml" value="text/html;charset=UTF-8" />
+                <entry key="json" value="application/json;charset=UTF-8" />
+                <entry key="xml" value="application/xml;charset=UTF-8" />
+            </map>
+        </property>
+    </bean>
+
+    <!-- ContentNegotiatingViewResolver视图解析器,利用他就可以配置多种返回值 -->
+    <bean class="org.springframework.web.servlet.view.ContentNegotiatingViewResolver">
+        <!-- 内容协商管理器 用于决定media type -->
+        <property name= "contentNegotiationManager" ref="contentNegotiationManager"/>
+        <!-- 默认使用MappingJacksonJsonView生成jsonview-->
+        <property name="defaultViews">
+            <list>
+                <!--  JSON view -->
+                <bean class="org.springframework.web.servlet.view.json.MappingJackson2JsonView">
+                    <property name="extractValueFromSingleKeyModel" value="true" />
+                </bean>
+            </list>
+        </property>
+    </bean>
 
 	<mvc:interceptors>
 		<!-- 使用bean定义一个Interceptor，直接定义在mvc:interceptors根下面的Interceptor将拦截所有的请求 -->
