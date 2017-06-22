@@ -95,6 +95,7 @@ public class OrderAction {
 		}
 		
 		mv.addObject("payOrderId", payOrderId);
+		mv.addObject("payOrderId2", payOrderId);
 		return mv;
 	}
 	
